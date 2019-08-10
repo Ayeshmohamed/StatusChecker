@@ -1,0 +1,285 @@
+{
+	"info": {
+		"_postman_id": "eace0f59-2a01-4920-808b-3f51eddf4162",
+		"name": "Status Checker Apis",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "User Register",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "email",
+									"value": "amdyes@gmail.com",
+									"description": "must type email ex   : test@test.com",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "@wes12345",
+									"description": "type string min:6 and max:10",
+									"type": "text"
+								},
+								{
+									"key": "username",
+									"value": "mohamed",
+									"description": "type string",
+									"type": "text"
+								},
+								{
+									"key": "phone",
+									"value": "01064712313",
+									"description": "  must be number min length 11 max 15",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{serverurl}}/api/v1/register",
+							"host": [
+								"{{serverurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"register"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "maysh452@gmail.com",
+									"disabled": true
+								},
+								{
+									"key": "name",
+									"value": "mohamed",
+									"disabled": true
+								},
+								{
+									"key": "password",
+									"value": "@moha4521",
+									"disabled": true
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "User login",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "username",
+									"value": "mohamed",
+									"type": "text"
+								},
+								{
+									"key": "password",
+									"value": "@wes12345",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{serverurl}}/api/v1/login",
+							"host": [
+								"{{serverurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"login"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Urls",
+			"item": [
+				{
+					"name": "get Urls",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": " come from user login",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"value": "application/json",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverurl}}/api/v1/urls",
+							"host": [
+								"{{serverurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"urls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Create Url",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"description": "Come from user login ",
+								"type": "text"
+							},
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "path",
+									"value": "127.0.0.1/dsfjsdkfh",
+									"description": "  type url ex https://google.com",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"description": "Auth user id",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{serverurl}}/api/v1/urls",
+							"host": [
+								"{{serverurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"urls"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "urlStatus",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "Authorization",
+								"value": "Bearer {{token}}",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "{{serverurl}}/api/v1/urls/1",
+							"host": [
+								"{{serverurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"urls",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Url update",
+					"request": {
+						"method": "PUT",
+						"header": [
+							{
+								"key": "Content-Type",
+								"name": "Content-Type",
+								"value": "application/x-www-form-urlencoded",
+								"type": "text"
+							},
+							{
+								"key": "Authorization",
+								"value": "Bearer  {{token}}",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "urlencoded",
+							"urlencoded": [
+								{
+									"key": "path",
+									"value": "http://127.0.0.1:8000/api/v1/urls/1",
+									"type": "text"
+								},
+								{
+									"key": "user_id",
+									"value": "1",
+									"type": "text"
+								}
+							]
+						},
+						"url": {
+							"raw": "{{serverurl}}/api/v1/urls/1",
+							"host": [
+								"{{serverurl}}"
+							],
+							"path": [
+								"api",
+								"v1",
+								"urls",
+								"1"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
